@@ -5,6 +5,9 @@
 
 .heading-1 {
   @extend %heading;
+  font-size: 4.5rem;
+  color: $color-grey-light-1;
+  line-height: 1;
 }
 
 .heading-2 {
@@ -55,7 +58,7 @@
   transition: all 0.3s;
 
   &:hover {
-    background-color: $color-grey-light-1;
+    background-color: transparent;
     color: $color-primary-dark;
     border: 0.5px solid $color-primary-dark;
   }

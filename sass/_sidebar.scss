@@ -2,4 +2,59 @@
   background-color: $color-primary;
   grid-column: sidebar-start / sidebar-end;
   grid-row: 1 / -1;
+
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  @media only screen and (max-width: $bp-large) {
+    position: fixed;
+    width: 100%;
+    height: 7rem;
+    z-index: 1000;
+  }
+
+  .nav-btn {
+    position: fixed;
+    top: 4rem;
+    left: 1.8rem;
+
+    border: none;
+    border-radius: 0;
+    @extend %looking;
+
+    &::before,
+    &::after {
+      content: '';
+      @extend %looking;
+      display: block;
+    }
+
+    &::before {
+      transform: translateY(-1.5rem);
+    }
+
+    &::after {
+      transform: translateY(1.3rem);
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      top: 3rem;
+
+      &::before {
+        transform: translateY(-1.2rem);
+      }
+
+      &::after {
+        transform: translateY(1rem);
+      }
+    }
+  }
+}
+
+%looking {
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
 }
