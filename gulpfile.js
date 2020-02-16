@@ -14,24 +14,22 @@ const gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   htmlmin = require('gulp-htmlmin');
 
-gulp.task('sass', function(done) {
+gulp.task('sass', () =>
   gulp
-    .src('./sass/**/*.scss')
+    .src('./sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('style.css'))
-    .pipe(gulp.dest('./css/'));
-  done();
-});
+    .pipe(gulp.dest('./css/'))
+);
 
-gulp.task('sass:watch', function(done) {
-  gulp.watch('./sass/**/*.scss', gulp.series('sass'));
-  done();
+gulp.task('sass:watch', function() {
+  return gulp.watch('./sass/*.scss', gulp.series('sass'));
 });
 
 gulp.task('browser-sync', function(done) {
   const files = [
     './index.html',
-    './sass/**/*.scss',
+    './sass/*.scss',
     './js/*.js',
     './img/*.{png,jpg,gif}'
   ];
